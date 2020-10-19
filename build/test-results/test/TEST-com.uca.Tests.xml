@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.uca.Tests" tests="13" skipped="0" failures="0" errors="0" timestamp="2020-10-15T15:17:50" hostname="francois-HP-ProDesk-600-G1-TWR" time="0.117">
+  <properties/>
+  <testcase name="pairRepetitive()" classname="com.uca.Tests" time="0.017"/>
+  <testcase name="exceptionRising()" classname="com.uca.Tests" time="0.002"/>
+  <testcase name="tooMuchRepetiveSymbols()" classname="com.uca.Tests" time="0.002"/>
+  <testcase name="isAGoodRoman()" classname="com.uca.Tests" time="0.002"/>
+  <testcase name="outsideInterval()" classname="com.uca.Tests" time="0.003"/>
+  <testcase name="oneLowerCase()" classname="com.uca.Tests" time="0.002"/>
+  <testcase name="isGoodDecimal()" classname="com.uca.Tests" time="0.001"/>
+  <testcase name="toRomanUpperCase()" classname="com.uca.Tests" time="0.006"/>
+  <testcase name="romanIsCapital()" classname="com.uca.Tests" time="0.01"/>
+  <testcase name="notInteger()" classname="com.uca.Tests" time="0.002"/>
+  <testcase name="testMainSuccess()" classname="com.uca.Tests" time="0.018"/>
+  <testcase name="nEqualN()" classname="com.uca.Tests" time="0.032"/>
+  <testcase name="testMainFailure()" classname="com.uca.Tests" time="0.002"/>
+  <system-out><![CDATA[intValue : 1
+doubleValue : 1.0
+floatValue : 1.0
+longValue : 1
+toString : I
+1 is inferior to 7
+intValue : 4
+doubleValue : 4.0
+floatValue : 4.0
+longValue : 4
+toString : IV
+4 is inferior to 7
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
