@@ -24,11 +24,11 @@ reservation/numberresa/NR2Factory.java
  numberresa.NR2Factory
 gestionvol/Escale.java
  gestionvol.Escale
-Main.java
- Main
+gestionvol/numberflight/NV2Factory.java
+ numberflight.NV2Factory
 reservation/numberresa/NRFactory.java
  numberresa.NRFactory
 reservation/numberresa/NumberResa.java
  numberresa.NumberResa
-gestionvol/numberflight/NV2Factory.java
- numberflight.NV2Factory
+Main.java
+ Main

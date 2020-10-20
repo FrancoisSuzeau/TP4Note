@@ -48,7 +48,7 @@ public class Main {
 		int keychoice = 0;
 		System.out.println(System.getProperty("line.separator") + ">>>>> Choose a Company");
 
-		while ((keychoice < 1) || (keychoice > 16))
+		while ((keychoice < 1) || (keychoice > 15))
 		{
 			try {
 
