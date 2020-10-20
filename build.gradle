@@ -15,6 +15,10 @@ dependencies {
     implementation 'org.junit.jupiter:junit-jupiter'
 }
 
+run {
+    standardInput = System.in
+}
+
 test {
     useJUnitPlatform()
 }
