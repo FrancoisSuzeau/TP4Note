@@ -9,7 +9,7 @@ public class Escale {
 
     public Escale(String nameA, String nameV)
     {
-        this.mt_aeroportArrival = new Aeroport(nameA, nameV);
+        //this.mt_aeroportArrival = new Aeroport(nameA, nameV);
         
 
 

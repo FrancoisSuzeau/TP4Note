@@ -2,8 +2,10 @@ package gestionvol;
 
 public class Ville {
 
-    private String  mt_name;
+    private String  mt_name; //the attribute name of the city
 
+    
+/************************************* Constructor *************************************/
     //we need only one constructor because a city has to have a name
     public Ville(String nom) throws IllegalArgumentException
     {
@@ -15,10 +17,10 @@ public class Ville {
         this.mt_name = nom;
     }
 
+/************************************* methods *************************************/
+
     public String getNameCity()
     {
         return this.mt_name;
     }
 }
-
-

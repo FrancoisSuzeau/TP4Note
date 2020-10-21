@@ -12,10 +12,18 @@ public class Company {
 /************************************* Constructor *************************************/
 	public Company(String name)
 	{
-		this.mt_name = name;
-		getPrefix();
-		this.mt_numberFactory = new NV2Factory(this.mt_prefix);
-		getFlight();
+		if((name.equals("")) || (name.length() == 1))
+		{
+			throw new IllegalArgumentException("No name available in Company constructor's");
+		}
+		else
+		{
+			this.mt_name = name;
+			getPrefix();
+			this.mt_numberFactory = new NV2Factory(this.mt_prefix);
+			getFlight();
+		}
+		
 	}
 
 /************************************* methods *************************************/
