@@ -1,4 +1,4 @@
-package numberresa;
+package reservation.numberresa;
 
 public class NR2 extends NumberResa {
 

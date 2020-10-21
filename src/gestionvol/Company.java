@@ -1,5 +1,5 @@
 package gestionvol;
-import numberflight.*;
+import gestionvol.numberflight.*;
 
 public class Company {
 

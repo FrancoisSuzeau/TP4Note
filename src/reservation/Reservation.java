@@ -1,7 +1,7 @@
 package reservation;
 import java.time.*;
 import gestionvol.Vol;
-import numberresa.*;
+import reservation.numberresa.*;
 
 public class Reservation {
 

@@ -1,5 +1,6 @@
 package reservation;
-import numberresa.*;
+import reservation.numberresa.*;
+
 public class Client {
 
     private String mt_name;

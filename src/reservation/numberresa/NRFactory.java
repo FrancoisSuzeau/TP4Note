@@ -1,4 +1,4 @@
-package numberresa;
+package reservation.numberresa;
 
 public class NRFactory {
 

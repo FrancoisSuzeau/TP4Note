@@ -73,5 +73,7 @@ public class Main {
 		}
 
 		System.out.println(System.getProperty("line.separator") + ">>>>> You choose the company : " + COMPANYNAME.get(keychoice));
+
+		Company my_company = new Company(COMPANYNAME.get(keychoice));
 	}
 }

@@ -1,4 +1,4 @@
-package numberflight;
+package gestionvol.numberflight;
 
 public class NV2 extends NumberFlight {
 

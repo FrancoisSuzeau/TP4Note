@@ -1,6 +1,6 @@
 package gestionvol;
 import java.time.*;
-import numberflight.*;
+import gestionvol.numberflight.*;
 
 public class Vol {
 
