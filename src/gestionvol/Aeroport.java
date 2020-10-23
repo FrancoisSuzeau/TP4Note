@@ -25,7 +25,6 @@ public class Aeroport {
 		AEROPORTNAME.put("St Johns", "St Johns International Airport");
 		AEROPORTNAME.put("Chicago", "O'Hare Chicago International Airport");
 		AEROPORTNAME.put("Shanghai", "Shanghai-Pudong International Airport");
-		AEROPORTNAME.put("Addis Ababa", "Addis Ababa/Bole International Airport");
 		AEROPORTNAME.put("Paris", "Roissy Charle de Gaulle International Airport");
 		AEROPORTNAME.put("Indianapolis", "Indianapolis International Airport");
 		AEROPORTNAME.put("Kolkata", "Netaji Subhash Chandra Bose International Airport");
@@ -53,21 +52,22 @@ public class Aeroport {
         }
 
         this.mt_city = new Ville(nameV);
-        System.out.println("You chose : " + this.mt_city.getNameCity());
+        //System.out.println("You chose : " + this.mt_city.toString());
 
-        this.mt_name = AEROPORTNAME.get(this.mt_city.getNameCity());
-        System.out.println("The name of the airports is : " + this.getNameAirport());
+        this.mt_name = AEROPORTNAME.get(this.mt_city.toString());
+        
 
     }
 
 /************************************* methods *************************************/
 
-    public String getNameAirport()
+    public String getNameAirport() //get the name of the aeroport
     {
         return this.mt_name;
 	}
 	
-	public String report_nameCityAirport()
+	public String report_nameCityAirport() //return the name of the city where the airport his using the key of the hashmap
+	//we no longer use the getter of Ville because he was already used in the constructor of Aeroport using the hasmap to do so.
 	{
 		Set<Entry<String, String>> set_hash = AEROPORTNAME.entrySet();
 		Iterator<Entry<String, String>> it = set_hash.iterator();

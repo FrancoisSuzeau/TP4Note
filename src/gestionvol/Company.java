@@ -1,12 +1,19 @@
 package gestionvol;
 import gestionvol.numberflight.*;
 
+import java.util.LinkedHashMap;
+import java.util.Iterator;
+import java.util.Map.Entry;
+import java.io.*;
+import java.util.*;
+
 public class Company {
 
-	private Vol 		mt_flight;			//the flight
-	private NV2Factory 	mt_numberFactory;	//the factory who made the number of the flight
-	private String 		mt_name;			//name of the company
-	private String 		mt_prefix; 			//prefix used for the number of the flight
+	private Collection <Vol> 		mt_flight = new ArrayList<>();
+	//private Vol 					mt_flight;
+	private NV2Factory 				mt_numberFactory;	//the factory who made the number of the flight
+	private String 					mt_name;			//name of the company
+	private String 					mt_prefix; 			//prefix used for the number of the flight
 
 
 /************************************* Constructor *************************************/
@@ -21,7 +28,12 @@ public class Company {
 			this.mt_name = name;
 			getPrefix();
 			this.mt_numberFactory = new NV2Factory(this.mt_prefix);
-			getFlight();
+			this.displayCity();
+			System.out.println(System.getProperty("line.separator") + ">>>>> Where do You want to go ? :");
+			String cityA = search_city();
+			System.out.println(System.getProperty("line.separator") + ">>>>> From where ? :");
+			String cityD = search_city();
+			setFlight(cityD, cityA);
 		}
 		
 	}
@@ -50,8 +62,90 @@ public class Company {
 		
 	}
 
-	public void getFlight() //construct the flight
+	public void setFlight(String nameD, String nameA) //construct the flight
 	{
-		this.mt_flight = new Vol(this.mt_numberFactory);
-	} 
+		Random rand = new Random();
+		int nb_vol = rand.nextInt(5);
+		System.out.println("There is " + nb_vol + " flight available");
+		if(nb_vol != 0)
+		{
+			int count = 0;
+			while(count < nb_vol)
+			{
+				this.addVol(new Vol(this.mt_numberFactory, nameD, nameA));
+				count++;
+			}
+			
+		}
+		
+	}
+
+	public void displayCity()
+	{
+		System.out.println(System.getProperty("line.separator") + " ------ Destination and departure available ------ ");
+
+		Set<Entry<String, String>> set_hash = Vol.ZONECITY.entrySet();
+		Iterator<Entry<String, String>> it = set_hash.iterator();
+		Entry <String, String> couple_map;
+
+		while(it.hasNext()) //display all destination available
+		{
+			couple_map = it.next();
+			System.out.println("-- " + couple_map.getKey());
+		}
+	}
+
+	public void display()
+	{
+		for(Vol v : this.mt_flight)
+		{
+			v.displayFlight();
+			System.out.println(System.getProperty("line.separator"));
+		}
+	}
+
+	public void addVol(Vol vol)
+	{
+		this.mt_flight.add(vol);
+	}
+
+	public void removeVol(Vol vol)
+	{
+		this.mt_flight.add(vol);
+	}
+
+	public int getnb_flight()
+	{
+		return this.mt_flight.size();
+	}
+
+	//this method ask to the user to choose the city of departure or arrival (depends wich aeroport call it)
+	public String search_city()
+	{
+		boolean choice_not_ok = true;
+		String choice = "";
+		while (choice_not_ok)
+		{
+			try {
+
+				Reader isr = new InputStreamReader(System.in);
+				BufferedReader br = new BufferedReader(isr);
+		
+				choice = br.readLine();
+				
+			}
+			catch(IOException e){}
+
+			if(Vol.ZONECITY.containsKey(choice))
+			{
+				choice_not_ok = false;
+			}
+			else
+			{
+				System.out.println(System.getProperty("line.separator") + ">>>>> No city with that name in the Data Base");
+			}
+		}
+
+		return choice;
+	}
 }

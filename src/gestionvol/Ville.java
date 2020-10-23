@@ -19,7 +19,8 @@ public class Ville {
 
 /************************************* methods *************************************/
 
-    public String getNameCity()
+    @Override
+    public String toString()
     {
         return this.mt_name;
     }

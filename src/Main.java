@@ -47,32 +47,47 @@ public class Main {
 		int keychoice = 0;
 		System.out.println(System.getProperty("line.separator") + ">>>>> Choose a Company");
 
-		while ((keychoice < 1) || (keychoice > 15))
+		while(true)
 		{
-			try {
-
-				
-				Reader isr = new InputStreamReader(System.in);
-				BufferedReader br = new BufferedReader(isr);
-		
-				choice = br.readLine();
-				
-			}
-			catch(IOException e)
+			while ((keychoice < 1) || (keychoice > 15))
 			{
+				try {
+	
 					
+					Reader isr = new InputStreamReader(System.in);
+					BufferedReader br = new BufferedReader(isr);
+			
+					choice = br.readLine();
+					
+				}
+				catch(IOException e)
+				{
+						
+				}
+	
+				keychoice = Integer.parseInt(choice);
+				if((keychoice < 1) || (keychoice > 16))
+				{
+					System.out.println(System.getProperty("line.separator") + ">>>>> You haven't choose a company, please choose between [1:15]");
+	
+				}
 			}
-
-			keychoice = Integer.parseInt(choice);
-			if((keychoice < 1) || (keychoice > 16))
+	
+			System.out.println(System.getProperty("line.separator") + ">>>>> You choose the company : " + COMPANYNAME.get(keychoice));
+	
+			Company my_company = new Company(COMPANYNAME.get(keychoice));
+	
+			if(my_company.getnb_flight() != 0)
 			{
-				System.out.println(System.getProperty("line.separator") + ">>>>> You haven't choose a company, please choose between [1:15]");
-
+				my_company.display();
+				break;
+			}
+			else
+			{
+				System.out.println("This company doesn't have a flight for your destination");
 			}
 		}
 
-		System.out.println(System.getProperty("line.separator") + ">>>>> You choose the company : " + COMPANYNAME.get(keychoice));
-
-		Company my_company = new Company(COMPANYNAME.get(keychoice));
+		
 	}
 }

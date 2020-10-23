@@ -10,7 +10,8 @@ public class NumberFlight {
 	}
 
 
-	public String getValue()
+	@Override
+	public String toString()
 	{
 		return this.mt_value;
 	}
