@@ -9,6 +9,8 @@ J'ai eu l'idée d'utiliser la double navigabilité afin de faire correspondre pa
 
 Sachant que ce n'était pas la priorité j'ai préférer mettre cela pour plus tard, on a juste une date d'arrivée qui prend en compte le nombre d'escale du vol si il y en a et qui rajoute un jour par escale.
 
+En revanche il n'y a qu'un seul vol par aeroport mais il est évidant que l'on gère les vols par aeroport via la double navigabilité.
+
  ### Pour lancer :
 
  J'ai utilisé gradle run. Il n'est pas nécéssaire d'utiliser un argument car j'ai modifier le build pour que gradle prenne les entrées clavier au moment ou le programme le demande.

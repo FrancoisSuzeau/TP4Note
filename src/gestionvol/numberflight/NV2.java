@@ -6,5 +6,4 @@ public class NV2 extends NumberFlight {
 	{
 		super(value);
 	}
-
 }

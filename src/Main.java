@@ -31,6 +31,35 @@ public class Main {
 
 	public static void main(String[] args) {
 
+		String nameCLi = "";
+
+		System.out.println(System.getProperty("line.separator") + ">>>>> Choose a client name");
+		while(true)
+		{
+			try {
+	
+					
+				Reader isr = new InputStreamReader(System.in);
+				BufferedReader br = new BufferedReader(isr);
+		
+				nameCLi = br.readLine();
+				if((nameCLi.equals("")) || (nameCLi.length() == 1))
+        		{
+            		System.out.println("You haven't choose a client name");
+				}
+				else
+				{
+					break;
+				}
+			}
+			catch(IOException e)
+			{
+					
+			}
+		}
+
+		Client my_client = new Client(nameCLi);
+
 		Set<Entry<Integer, String>> set_hash = COMPANYNAME.entrySet();
 		Iterator<Entry<Integer, String>> it = set_hash.iterator();
 		Entry <Integer, String> couple_hashMap;
@@ -47,7 +76,7 @@ public class Main {
 		int keychoice = 0;
 		System.out.println(System.getProperty("line.separator") + ">>>>> Choose a Company");
 
-		while(true)
+		while(true) // the main loop of the programme
 		{
 			while ((keychoice < 1) || (keychoice > 15))
 			{
@@ -64,13 +93,21 @@ public class Main {
 				{
 						
 				}
-	
-				keychoice = Integer.parseInt(choice);
-				if((keychoice < 1) || (keychoice > 16))
-				{
-					System.out.println(System.getProperty("line.separator") + ">>>>> You haven't choose a company, please choose between [1:15]");
-	
+
+				try {
+					keychoice = Integer.parseInt(choice);
+					if((keychoice < 1) || (keychoice > 16))
+					{
+						System.out.println(System.getProperty("line.separator") + ">>>>> You haven't choose a company, please choose between [1:15]");
+		
+					}
+					
+				} catch (NumberFormatException e) {
+					System.out.println("ParseInt failed to convert String in Integer : May be an empty String");
+					System.out.println(">>>> Try again");
 				}
+	
+				
 			}
 	
 			System.out.println(System.getProperty("line.separator") + ">>>>> You choose the company : " + COMPANYNAME.get(keychoice));
@@ -80,6 +117,34 @@ public class Main {
 			if(my_company.getnb_flight() != 0)
 			{
 				my_company.display();
+
+				String choose_idFlight = "";
+				System.out.println(System.getProperty("line.separator") + ">>>>> Wich flight do you choose ?");
+				while(true)
+				{
+					try {
+			
+							
+						Reader isr = new InputStreamReader(System.in);
+						BufferedReader br = new BufferedReader(isr);
+				
+						choose_idFlight = br.readLine();
+						if((choose_idFlight.equals("")) || (choose_idFlight.length() == 1))
+						{
+							System.out.println("You haven't choose a flight");
+						}
+						else
+						{
+							break;
+						}
+					}
+					catch(IOException e)
+					{
+							
+					}
+				}
+
+				my_client.setReservation(my_company.getFlight(choose_idFlight));
 				break;
 			}
 			else
@@ -87,7 +152,5 @@ public class Main {
 				System.out.println("This company doesn't have a flight for your destination");
 			}
 		}
-
-		
 	}
 }

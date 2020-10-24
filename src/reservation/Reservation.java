@@ -1,7 +1,10 @@
 package reservation;
-import java.time.*;
 import gestionvol.Vol;
 import reservation.numberresa.*;
+
+import java.time.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Reservation {
 
@@ -9,26 +12,32 @@ public class Reservation {
 
     private NR2             mt_numberResa;
 
-    private Vol             mt_volRes;
+    private Vol             mt_volRes; // {frozen}
+
+    private Passager        mt_passager;
 
 /************************************* Constructor *************************************/
-    public Reservation(NR2Factory nrf)
+    public Reservation(NR2Factory nrf, String name, Vol vol) //passager == client
     {
         this.setNumberRes(nrf);
+        this.setPassenger(name);
+        this.setDateRes();
+        this.setFlight(vol);
+        System.out.println("New Reservation added");
+    }
+
+    public Reservation(NR2Factory nrf, Vol vol)//passager != client
+    {
+        this.setNumberRes(nrf);
+        this.setPassenger();
+        this.setDateRes();
+        this.setFlight(vol);
+        System.out.println("New Reservation added");
     }
     
 /************************************* getter/setter *************************************/
-    public void setdateRes(ZonedDateTime dateRes) 
-    {
-        this.mt_dateRes = mt_dateRes;
-    }
 
-    public ZonedDateTime getdateRes()
-    {
-		return this.mt_dateRes;
-    }
-    
-    public void setNumberRes(NR2Factory nrf ) 
+    public void setNumberRes(NR2Factory nrf) 
     {
 		this.mt_numberResa = nrf.getNumbResa();
 	}
@@ -38,13 +47,42 @@ public class Reservation {
 		return this.mt_numberResa;
 	}
 
-	public Vol getFlight() {
+	public Vol getFlightRes() {
 		return this.mt_volRes;
 	}
 
-	public void setFlight(Vol volR) {
-		this.mt_volRes =  volR;
+    public void setFlight(Vol volR)
+    {
+        this.mt_volRes =  volR;
+        System.out.println("Your flight is : " + this.mt_volRes.getNumberFlight());
     }
+
+    public void setPassenger()
+    {
+        this.mt_passager = new Passager();
+    }
+
+    public void setPassenger(String name)
+    {
+        this.mt_passager = new Passager(name);
+    }
+
+    public ZonedDateTime getDateRes()
+    {
+		return this.mt_dateRes;
+	}
+
+    public void setDateRes()
+    //not mine : https://mkyong.com/java8/java-8-zoneddatetime-examples/
+    {
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyy/MM/dd HH:mm");
+
+        LocalDateTime ldt = LocalDateTime.now();
+
+        this.mt_dateRes = ldt.atZone(ZoneId.of("Europe/Paris")); //by default the reservation is made in France
+        System.out.println("Date reservation : " + format.format(this.mt_dateRes));
+
+	}
     
 /************************************* methods *************************************/
     public void confirme()

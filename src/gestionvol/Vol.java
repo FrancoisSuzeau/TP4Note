@@ -1,11 +1,9 @@
 package gestionvol;
 
 import java.time.*;
-import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
 import java.time.Duration;
 
 import java.util.LinkedHashMap;
@@ -77,6 +75,11 @@ public class Vol {
 	{}
 
 /************************************* getter/setter *************************************/
+
+	public String getNumberFlight()
+	{
+		return this.mt_numberFlight.toString();
+	}
 
 	public Collection <Escale> getEscale() 
 	{

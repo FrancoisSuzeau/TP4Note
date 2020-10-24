@@ -7,6 +7,9 @@ import java.util.Map.Entry;
 import java.io.*;
 import java.util.*;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Company {
 
 	private Collection <Vol> 		mt_flight = new ArrayList<>();
@@ -38,7 +41,49 @@ public class Company {
 		
 	}
 
+/************************************* getter/setter *************************************/
+	public Vol getFlight(String idFlight)
+	{
+		Vol volAddRes = new Vol();
+		if(this.isIDflightValide(idFlight))
+		{
+			for(Vol v : this.mt_flight)
+			{
+				if(v.getNumberFlight().equals(idFlight))
+				{
+					volAddRes = v;
+				}
+			}
+		}
+
+		return volAddRes;
+	}
+
 /************************************* methods *************************************/
+
+	public boolean isIDflightValide(String idFLight)
+	{
+		if(!idFLight.equals(""))
+        {
+            Pattern pattern = Pattern.compile("\\S+ - \\d{6}");
+            Matcher matcher = pattern.matcher(idFLight);
+    
+            if(matcher.matches())
+            {
+                System.out.println("Your flight id is valide");
+                return true;
+            }
+            else
+            {
+                System.out.println("Your flight id is invalide");
+            }
+        }
+        else
+        {
+            System.out.println("Your flight id is invalide");
+        }
+        return false;
+	}
 
 	public void getPrefix() //make the prefix used for all number of flights
 	{
