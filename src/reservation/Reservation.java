@@ -23,6 +23,8 @@ public class Reservation {
         this.setPassenger(name);
         this.setDateRes();
         this.setFlight(vol);
+        this.mt_volRes.displayFlightWithoutEsc();
+        System.out.println("Reservation number : " + this.mt_numberResa.toString());
         System.out.println("New Reservation added");
     }
 
@@ -32,6 +34,8 @@ public class Reservation {
         this.setPassenger();
         this.setDateRes();
         this.setFlight(vol);
+        this.mt_volRes.displayFlightWithoutEsc();
+        System.out.println("Reservation number : " + this.mt_numberResa.toString());
         System.out.println("New Reservation added");
     }
     
@@ -39,8 +43,8 @@ public class Reservation {
 
     public void setNumberRes(NR2Factory nrf) 
     {
-		this.mt_numberResa = nrf.getNumbResa();
-	}
+        this.mt_numberResa = nrf.getNumbResa();
+    }
 
     public NR2 getNumberRes() 
     {
@@ -54,7 +58,6 @@ public class Reservation {
     public void setFlight(Vol volR)
     {
         this.mt_volRes =  volR;
-        System.out.println("Your flight is : " + this.mt_volRes.getNumberFlight());
     }
 
     public void setPassenger()

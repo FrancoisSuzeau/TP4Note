@@ -342,4 +342,14 @@ public class Vol {
 			}
 		}
 	}
+
+	public void displayFlightWithoutEsc()
+	{
+		System.out.println("Number flight : " + this.mt_numberFlight.toString());
+		System.out.println(System.getProperty("line.separator") + "------ Details ------");
+		System.out.println("Aeroport departure : " + this.mt_aeroDeparture.getNameAirport());
+		System.out.println(">>> Date departure 	: " + this.mt_departure);
+		System.out.println("Aeroport arrival : " + this.mt_aeroArrival.getNameAirport());
+		System.out.println(">>> Date arrival 	: " + this.mt_arrival);
+	}
 }

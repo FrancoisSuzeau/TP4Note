@@ -8,4 +8,10 @@ public class NumberResa {
 	{
 		this.mt_value = value;
 	}
+
+	@Override
+	public String toString()
+	{
+		return this.mt_value;
+	}
 }

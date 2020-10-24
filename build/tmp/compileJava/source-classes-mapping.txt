@@ -2,33 +2,33 @@ gestionvol/Aeroport.java
  gestionvol.Aeroport
 gestionvol/numberflight/NV2.java
  gestionvol.numberflight.NV2
-reservation/numberresa/NR2.java
- reservation.numberresa.NR2
-reservation/Client.java
- reservation.Client
+reservation/numberresa/NumberResa.java
+ reservation.numberresa.NumberResa
+reservation/numberresa/NR2Factory.java
+ reservation.numberresa.NR2Factory
 gestionvol/Ville.java
  gestionvol.Ville
 reservation/Passager.java
  reservation.Passager
 gestionvol/numberflight/NumberFlight.java
  gestionvol.numberflight.NumberFlight
-reservation/Reservation.java
- reservation.Reservation
-gestionvol/numberflight/NVFactory.java
- gestionvol.numberflight.NVFactory
-gestionvol/Company.java
- gestionvol.Company
-gestionvol/Vol.java
- gestionvol.Vol
-reservation/numberresa/NR2Factory.java
- reservation.numberresa.NR2Factory
-gestionvol/Escale.java
- gestionvol.Escale
-Main.java
- Main
-reservation/numberresa/NRFactory.java
- reservation.numberresa.NRFactory
-reservation/numberresa/NumberResa.java
- reservation.numberresa.NumberResa
 gestionvol/numberflight/NV2Factory.java
  gestionvol.numberflight.NV2Factory
+gestionvol/numberflight/NVFactory.java
+ gestionvol.numberflight.NVFactory
+reservation/numberresa/NR2.java
+ reservation.numberresa.NR2
+reservation/numberresa/NRFactory.java
+ reservation.numberresa.NRFactory
+Main.java
+ Main
+gestionvol/Escale.java
+ gestionvol.Escale
+gestionvol/Vol.java
+ gestionvol.Vol
+gestionvol/Company.java
+ gestionvol.Company
+reservation/Client.java
+ reservation.Client
+reservation/Reservation.java
+ reservation.Reservation

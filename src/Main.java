@@ -5,6 +5,7 @@ import java.io.*;
 import java.util.*;
 
 import gestionvol.Company;
+import gestionvol.Vol;
 import reservation.Client;
 
 public class Main {
@@ -59,6 +60,7 @@ public class Main {
 		}
 
 		Client my_client = new Client(nameCLi);
+		Company my_company = new Company();
 
 		Set<Entry<Integer, String>> set_hash = COMPANYNAME.entrySet();
 		Iterator<Entry<Integer, String>> it = set_hash.iterator();
@@ -76,7 +78,7 @@ public class Main {
 		int keychoice = 0;
 		System.out.println(System.getProperty("line.separator") + ">>>>> Choose a Company");
 
-		while(true) // the main loop of the programme
+		while(true)
 		{
 			while ((keychoice < 1) || (keychoice > 15))
 			{
@@ -112,44 +114,53 @@ public class Main {
 	
 			System.out.println(System.getProperty("line.separator") + ">>>>> You choose the company : " + COMPANYNAME.get(keychoice));
 	
-			Company my_company = new Company(COMPANYNAME.get(keychoice));
+			Company tmp_comp = new Company(COMPANYNAME.get(keychoice));
 	
-			if(my_company.getnb_flight() != 0)
+			if(tmp_comp.getnb_flight() != 0)
 			{
-				my_company.display();
-
-				String choose_idFlight = "";
-				System.out.println(System.getProperty("line.separator") + ">>>>> Wich flight do you choose ?");
-				while(true)
-				{
-					try {
-			
-							
-						Reader isr = new InputStreamReader(System.in);
-						BufferedReader br = new BufferedReader(isr);
-				
-						choose_idFlight = br.readLine();
-						if((choose_idFlight.equals("")) || (choose_idFlight.length() == 1))
-						{
-							System.out.println("You haven't choose a flight");
-						}
-						else
-						{
-							break;
-						}
-					}
-					catch(IOException e)
-					{
-							
-					}
-				}
-
-				my_client.setReservation(my_company.getFlight(choose_idFlight));
+				tmp_comp.display();
+				my_company = tmp_comp;
 				break;
 			}
 			else
 			{
 				System.out.println("This company doesn't have a flight for your destination");
+			}
+		}
+
+		String choose_idFlight = "";
+		System.out.println(System.getProperty("line.separator") + ">>>>> Wich flight do you choose ?");
+		while(true)
+		{
+			try {
+			
+							
+				Reader isr = new InputStreamReader(System.in);
+				BufferedReader br = new BufferedReader(isr);
+				
+				choose_idFlight = br.readLine();
+				if((choose_idFlight.equals("")) || (choose_idFlight.length() == 1))
+				{
+					System.out.println("You haven't choose a flight");
+				}
+				else
+				{
+					Vol vol = my_company.getFlight(choose_idFlight);
+					if(vol != null)
+					{
+						my_client.setReservation(vol);
+					
+						break;
+					}
+					else
+					{
+						choose_idFlight = "";
+					}
+				}
+			}
+			catch(IOException e)
+			{
+						
 			}
 		}
 	}

@@ -41,22 +41,29 @@ public class Company {
 		
 	}
 
+	public Company() {}
+
 /************************************* getter/setter *************************************/
 	public Vol getFlight(String idFlight)
 	{
-		Vol volAddRes = new Vol();
+		Vol volR = new Vol();
 		if(this.isIDflightValide(idFlight))
 		{
 			for(Vol v : this.mt_flight)
 			{
 				if(v.getNumberFlight().equals(idFlight))
 				{
-					volAddRes = v;
+					volR = v;
 				}
 			}
-		}
 
-		return volAddRes;
+			return volR;
+		}
+		else
+		{
+			return null;
+		}
+		
 	}
 
 /************************************* methods *************************************/
