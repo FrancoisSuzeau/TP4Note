@@ -325,6 +325,16 @@ public class Vol {
 		}
 	}
 
+	public void ouvrir()
+	{
+
+	}
+
+	public void fermer()
+	{
+		
+	}
+
 	public void displayFlight()
 	{
 		System.out.println("Number flight : " + this.mt_numberFlight.toString());

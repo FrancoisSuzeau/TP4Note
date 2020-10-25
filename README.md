@@ -11,15 +11,19 @@ Sachant que ce n'était pas la priorité j'ai préférer mettre cela pour plus t
 
 En revanche il n'y a qu'un seul vol par aeroport mais il est évidant que l'on gère les vols par aeroport via la double navigabilité.
 
- ### Pour lancer :
+## Les différents état n'ont pas pu être implémenter ainsi que les méthodes ouvrir() et fermer() de Vol
 
- J'ai utilisé gradle run. Il n'est pas nécéssaire d'utiliser un argument car j'ai modifier le build pour que gradle prenne les entrées clavier au moment ou le programme le demande.
+Les signatures existent mais ne font rien. On a tenté d'implémenter une délégation avec les différents états du vol (donc la classe Payee, Confirmee)
+
+### Pour lancer :
+
+J'ai utilisé gradle run. Il n'est pas nécéssaire d'utiliser un argument car j'ai modifier le build pour que gradle prenne les entrées clavier au moment ou le programme le demande.
 
 Ligne 18 build.gradle
  	run {
  	standardInput = System.in
  }
 
- #### Déroulement du programme : 
+#### Déroulement du programme : 
 
- On demande quel compagnie l'utilisateur souhaite prendre puis une liste de ville pour la destination et le départ. Ensuite le programme affiche une liste de vol, son numéro et enfin les escales associé si il y en a avec heure de départ et d'arrivé par vol et par escale.
+On demande quel compagnie l'utilisateur souhaite prendre puis une liste de ville pour la destination et le départ. Ensuite le programme affiche une liste de vol, son numéro et enfin les escales associé si il y en a avec heure de départ et d'arrivé par vol et par escale.

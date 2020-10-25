@@ -1,6 +1,7 @@
 package reservation;
 import gestionvol.Vol;
 import reservation.numberresa.*;
+import reservation.etatreservation.EtatReservation;
 
 import java.time.*;
 import java.time.LocalDateTime;
@@ -8,15 +9,22 @@ import java.time.format.DateTimeFormatter;
 
 public class Reservation {
 
-    private ZonedDateTime 	mt_dateRes;
+    private ZonedDateTime 	    mt_dateRes;
 
-    private NR2             mt_numberResa;
+    private NR2                 mt_numberResa;
 
-    private Vol             mt_volRes; // {frozen}
+    private Vol                 mt_volRes; // {frozen}
 
-    private Passager        mt_passager;
+    private Passager            mt_passager;
+
+    private EtatReservation     mt_etat;
 
 /************************************* Constructor *************************************/
+    public Reservation()
+    {
+
+    }
+
     public Reservation(NR2Factory nrf, String name, Vol vol) //passager == client
     {
         this.setNumberRes(nrf);
@@ -40,6 +48,11 @@ public class Reservation {
     }
     
 /************************************* getter/setter *************************************/
+
+    public EtatReservation getEtatReservation()
+    {
+        return this.mt_etat;
+    }
 
     public void setNumberRes(NR2Factory nrf) 
     {
@@ -88,13 +101,23 @@ public class Reservation {
 	}
     
 /************************************* methods *************************************/
-    public void confirme()
+    public void confirmer()
     {
-
+        this.mt_etat.annuler(this);
     }
 
-    public void cancel()
+    public void payer()
     {
+        this.mt_etat.payer(this);
+    }
 
+    public void annuler()
+    {
+        this.mt_etat.annuler(this);
+    }
+
+    public void enregistrer()
+    {
+        this.mt_etat.enregistrer(this);
     }
 }

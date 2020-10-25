@@ -13,7 +13,6 @@ import java.util.regex.Pattern;
 public class Company {
 
 	private Collection <Vol> 		mt_flight = new ArrayList<>();
-	//private Vol 					mt_flight;
 	private NV2Factory 				mt_numberFactory;	//the factory who made the number of the flight
 	private String 					mt_name;			//name of the company
 	private String 					mt_prefix; 			//prefix used for the number of the flight
